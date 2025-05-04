@@ -46,6 +46,26 @@ export default function BookingPage() {
   const flightId = searchParams.get("flightId") || ""
   const passengersCount = Number.parseInt(searchParams.get("passengers") || "1")
   const flightClass = searchParams.get("class") || "ECONOMY"
+  const price = Number.parseFloat(searchParams.get("price") || "0")
+  const departureAirport = searchParams.get("departureAirport") || ""
+  const arrivalAirport = searchParams.get("arrivalAirport") || ""
+  const departureTime = searchParams.get("departureTime") || ""
+  const arrivalTime = searchParams.get("arrivalTime") || ""
+  const airline = searchParams.get("airline") || ""
+  const flightNumber = searchParams.get("flightNumber") || ""
+  const status = searchParams.get("status") || ""
+
+  // Calculate duration dynamically
+  const calculateDuration = (departure: string, arrival: string) => {
+    const departureTime = new Date(departure).getTime()
+    const arrivalTime = new Date(arrival).getTime()
+    const durationMs = arrivalTime - departureTime
+    const hours = Math.floor(durationMs / (1000 * 60 * 60))
+    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60))
+    return `${hours}h ${minutes}m`
+  }
+
+  const duration = calculateDuration(departureTime, arrivalTime)
 
   const [flight, setFlight] = useState<Flight | null>(null)
   const [loading, setLoading] = useState(true)
@@ -70,18 +90,18 @@ export default function BookingPage() {
         // Mock flight data
         const mockFlight: Flight = {
           _id: flightId,
-          flightNumber: "AF1234",
-          airline: "Air France",
-          departureAirport: "JFK",
-          arrivalAirport: "CDG",
+          flightNumber: flightNumber,
+          airline: airline,
+          departureAirport: departureAirport,
+          arrivalAirport: arrivalAirport,
           departureCity: "New York",
           arrivalCity: "Paris",
-          departureTime: "2023-12-15T08:30:00",
-          arrivalTime: "2023-12-15T20:45:00",
-          price: 43550,
+          departureTime: departureTime,
+          arrivalTime: arrivalTime,
+          price: price,
           availableSeats: 45,
           aircraft: "Boeing 777",
-          status: "scheduled",
+          status: status,
         }
 
         setFlight(mockFlight)
@@ -109,16 +129,6 @@ export default function BookingPage() {
 
     fetchFlight()
   }, [flightId, passengersCount])
-
-  // Calculate duration between departure and arrival
-  const calculateDuration = (departure: string, arrival: string) => {
-    const departureTime = new Date(departure).getTime()
-    const arrivalTime = new Date(arrival).getTime()
-    const durationMs = arrivalTime - departureTime
-    const hours = Math.floor(durationMs / (1000 * 60 * 60))
-    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60))
-    return `${hours}h ${minutes}m`
-  }
 
   const handlePassengerChange = (index: number, field: keyof PassengerForm, value: string) => {
     const updatedPassengers = [...passengers]
@@ -232,29 +242,29 @@ export default function BookingPage() {
                     <h3 className="text-lg font-semibold">Flight Details</h3>
                     <p>
                       <Clock className="inline-block mr-1 h-4 w-4" />
-                      {format(parseISO(flight.departureTime), "EEE, d MMM yyyy HH:mm")} -{" "}
-                      {format(parseISO(flight.arrivalTime), "HH:mm")}
+                      {format(parseISO(departureTime), "EEE, d MMM yyyy HH:mm")} -{" "}
+                      {format(parseISO(arrivalTime), "HH:mm")}
                     </p>
                     <p>
                       <ArrowRight className="inline-block mr-1 h-4 w-4" />
-                      {flight.departureCity} to {flight.arrivalCity}
+                      {departureAirport} to {arrivalAirport}
                     </p>
                     <p>
                       <Clock className="inline-block mr-1 h-4 w-4" />
-                      Duration: {calculateDuration(flight.departureTime, flight.arrivalTime)}
+                      Duration: {duration}
                     </p>
                     <p>
                       <Luggage className="inline-block mr-1 h-4 w-4" />
-                      Airline: {flight.airline} - Flight Number: {flight.flightNumber}
+                      Airline: {airline} - Flight Number: {flightNumber}
                     </p>
-                    <p>Status: {flight.status}</p>
+                    <p>Status: {status}</p>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Passenger Information</h3>
                     <p>Number of Passengers: {passengersCount}</p>
                     <p>Class: {flightClass}</p>
-                    <p>Price per passenger: ₹{flight.price}</p>
-                    <p className="font-semibold">Total Price: ₹{flight.price * passengersCount}</p>
+                    <p>Price per passenger: ₹{price}</p>
+                    <p className="font-semibold">Total Price: ₹{price * passengersCount}</p>
                   </div>
                 </div>
 

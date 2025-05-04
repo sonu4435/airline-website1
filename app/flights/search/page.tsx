@@ -85,7 +85,7 @@ export default function SearchResults() {
           {
             _id: "flight3",
             flightNumber: "LH5678",
-            airline: "",
+            airline: "lufficus",
             departureAirport: from,
             arrivalAirport: to,
             departureCity: "Paris",
@@ -164,11 +164,11 @@ export default function SearchResults() {
     const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60))
     return `${hours}h ${minutes}m`
   }
-
   const handleSelectFlight = (flight: Flight) => {
-    router.push(`/booking?flightId=${flight._id}&passengers=${passengers}&class=${flightClass}`)
-  }
-
+      router.push(
+          `/booking?flightId=${flight._id}&passengers=${passengers}&class=${flightClass}&price=${flight.price}&departureAirport=${flight.departureAirport}&arrivalAirport=${flight.arrivalAirport}&departureTime=${flight.departureTime}&arrivalTime=${flight.arrivalTime}&airline=${flight.airline}&flightNumber=${flight.flightNumber}&status=${flight.status}`
+            )
+      }
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <FlightHeader />
@@ -299,5 +299,4 @@ export default function SearchResults() {
         </div>
       </main>
     </div>
-  )
-}
+  )}
