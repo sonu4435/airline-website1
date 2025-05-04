@@ -166,7 +166,7 @@ export default function DashboardPage() {
                     <Hotel className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Hotel Bookings</p>
+                    <p className="text-sm text-gray-500">Flight Bookings</p>
                     <p className="text-2xl font-bold">
                       {bookings.filter((b) => b.type === "hotel" && b.status === "upcoming").length}
                     </p>
@@ -183,7 +183,7 @@ export default function DashboardPage() {
                   <div>
                     <p className="text-sm text-gray-500">Total Spent</p>
                     <p className="text-2xl font-bold">
-                      ${bookings.reduce((total, booking) => total + booking.price, 0).toFixed(2)}
+                    ₹{bookings.reduce((total, booking) => total + booking.price, 0).toFixed(2)}
                     </p>
                   </div>
                 </div>

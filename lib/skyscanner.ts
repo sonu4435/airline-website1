@@ -467,6 +467,94 @@ const mockLocations: LocationSearchResult[] = [
     countryName: "United Kingdom",
     type: "AIRPORT",
   },
+  {
+    entityId: "1001",
+    name: "Indira Gandhi International Airport",
+    iataCode: "DEL",
+    cityName: "Delhi",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1002",
+    name: "Chhatrapati Shivaji Maharaj International Airport",
+    iataCode: "BOM",
+    cityName: "Mumbai",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1003",
+    name: "Kempegowda International Airport",
+    iataCode: "BLR",
+    cityName: "Bangalore",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1004",
+    name: "Rajiv Gandhi International Airport",
+    iataCode: "HYD",
+    cityName: "Hyderabad",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1005",
+    name: "Chennai International Airport",
+    iataCode: "MAA",
+    cityName: "Chennai",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1006",
+    name: "Netaji Subhas Chandra Bose International Airport",
+    iataCode: "CCU",
+    cityName: "Kolkata",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1007",
+    name: "Cochin International Airport",
+    iataCode: "COK",
+    cityName: "Kochi",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1008",
+    name: "Sardar Vallabhbhai Patel International Airport",
+    iataCode: "AMD",
+    cityName: "Ahmedabad",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1009",
+    name: "Pune Airport",
+    iataCode: "PNQ",
+    cityName: "Pune",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1010",
+    name: "Goa International Airport",
+    iataCode: "GOI",
+    cityName: "Goa",
+    countryName: "India",
+    type: "AIRPORT"
+  },
+  {
+    entityId: "1011",
+    name: "Biju Patnaik International Airport",
+    iataCode: "BBI",
+    cityName: "Bhubaneswar",
+    countryName: "India",
+    type: "AIRPORT"
+  },    
 ]
 
 export const skyscanner = new SkyscannerAPI()
