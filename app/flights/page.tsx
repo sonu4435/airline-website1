@@ -35,12 +35,12 @@ export default function FlightsPage() {
 
     // Validate form
     if (!from) {
-      setFormError("Please enter a departure location")
+      setFormError("Please enter a correct departure location")
       return
     }
 
     if (!to) {
-      setFormError("Please enter a destination")
+      setFormError("Please enter a correct destination")
       return
     }
 
@@ -66,7 +66,6 @@ export default function FlightsPage() {
           <Card className="mt-8">
             <CardContent className="p-6">
               <h1 className="text-2xl font-bold mb-6">Search Flights</h1>
-
               {formError && (
                 <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-600 rounded-md">{formError}</div>
               )}

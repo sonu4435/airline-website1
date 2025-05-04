@@ -97,16 +97,16 @@ class SkyscannerAPI {
                 },
                 ...(params.inboundDate
                   ? [
-                      {
-                        originPlaceId: { iata: params.destinationPlace },
-                        destinationPlaceId: { iata: params.originPlace },
-                        date: {
-                          year: Number.parseInt(params.inboundDate.split("-")[0]),
-                          month: Number.parseInt(params.inboundDate.split("-")[1]),
-                          day: Number.parseInt(params.inboundDate.split("-")[2]),
-                        },
+                    {
+                      originPlaceId: { iata: params.destinationPlace },
+                      destinationPlaceId: { iata: params.originPlace },
+                      date: {
+                        year: Number.parseInt(params.inboundDate.split("-")[0]),
+                        month: Number.parseInt(params.inboundDate.split("-")[1]),
+                        day: Number.parseInt(params.inboundDate.split("-")[2]),
                       },
-                    ]
+                    },
+                  ]
                   : []),
               ],
               adults: params.adults || 1,
@@ -383,6 +383,186 @@ const mockFlightOffers: FlightOffer[] = [
     ],
     deepLink: "https://www.skyscanner.com/transport/flights/cdg/mad/241220/",
   },
+  {
+    id: "flight_offer_6",
+    price: {
+      amount: 150,
+      currency: "USD",
+    },
+    legs: [
+      {
+        id: "leg_6",
+        departureAirport: {
+          name: "Paris Orly",
+          code: "ORY",
+          city: "Paris",
+        },
+        arrivalAirport: {
+          name: "Madrid Barajas",
+          code: "MAD",
+          city: "Madrid",
+        },
+        departureTime: "2024-12-20T11:45:00",
+        arrivalTime: "2024-12-20T13:55:00",
+        duration: 130,
+        stops: 0,
+        carriers: ["TP"],
+        operatingCarriers: ["TP"],
+      },
+    ],
+    carriers: [
+      {
+        id: "TP",
+        name: "TAP Air Portugal",
+        logo: "/placeholder.svg?height=40&width=40",
+      },
+    ],
+    deepLink: "https://www.skyscanner.com/transport/flights/ory/mad/241220/",
+  },
+  {
+    id: "flight_offer_7",
+    price: {
+      amount: 200,
+      currency: "USD",
+    },
+    legs: [
+      {
+        id: "leg_7",
+        departureAirport: {
+          name: "Paris Charles de Gaulle",
+          code: "CDG",
+          city: "Paris",
+        },
+        arrivalAirport: {
+          name: "Madrid Barajas",
+          code: "MAD",
+          city: "Madrid",
+        },
+        departureTime: "2024-12-20T08:30:00",
+        arrivalTime: "2024-12-20T12:30:00",
+        duration: 240, // 4h
+        stops: 1,
+        carriers: ["LH"],
+        operatingCarriers: ["LH"],
+      },
+    ],
+    carriers: [
+      {
+        id: "LH",
+        name: "Lufthansa",
+        logo: "/placeholder.svg?height=40&width=40",
+      },
+    ],
+    deepLink: "https://www.skyscanner.com/transport/flights/cdg/mad/241220/",
+  },
+  {
+    id: "flight_offer_8",
+    price: {
+      amount: 180,
+      currency: "USD",
+    },
+    legs: [
+      {
+        id: "leg_8",
+        departureAirport: {
+          name: "Paris Orly",
+          code: "ORY",
+          city: "Paris",
+        },
+        arrivalAirport: {
+          name: "Madrid Barajas",
+          code: "MAD",
+          city: "Madrid",
+        },
+        departureTime: "2024-12-20T18:10:00",
+        arrivalTime: "2024-12-20T20:15:00",
+        duration: 125,
+        stops: 0,
+        carriers: ["U2"],
+        operatingCarriers: ["U2"],
+      },
+    ],
+    carriers: [
+      {
+        id: "U2",
+        name: "easyJet",
+        logo: "/placeholder.svg?height=40&width=40",
+      },
+    ],
+    deepLink: "https://www.skyscanner.com/transport/flights/ory/mad/241220/",
+  },
+  {
+    id: "flight_offer_9",
+    price: {
+      amount: 260,
+      currency: "USD",
+    },
+    legs: [
+      {
+        id: "leg_9",
+        departureAirport: {
+          name: "Paris Charles de Gaulle",
+          code: "CDG",
+          city: "Paris",
+        },
+        arrivalAirport: {
+          name: "Madrid Barajas",
+          code: "MAD",
+          city: "Madrid",
+        },
+        departureTime: "2024-12-20T06:10:00",
+        arrivalTime: "2024-12-20T08:20:00",
+        duration: 130,
+        stops: 0,
+        carriers: ["BA"],
+        operatingCarriers: ["BA"],
+      },
+    ],
+    carriers: [
+      {
+        id: "BA",
+        name: "British Airways",
+        logo: "/placeholder.svg?height=40&width=40",
+      },
+    ],
+    deepLink: "https://www.skyscanner.com/transport/flights/cdg/mad/241220/",
+  },
+  {
+    id: "flight_offer_10",
+    price: {
+      amount: 195,
+      currency: "USD",
+    },
+    legs: [
+      {
+        id: "leg_10",
+        departureAirport: {
+          name: "Paris Charles de Gaulle",
+          code: "CDG",
+          city: "Paris",
+        },
+        arrivalAirport: {
+          name: "Madrid Barajas",
+          code: "MAD",
+          city: "Madrid",
+        },
+        departureTime: "2024-12-20T19:00:00",
+        arrivalTime: "2024-12-20T21:10:00",
+        duration: 130,
+        stops: 0,
+        carriers: ["AZ"],
+        operatingCarriers: ["AZ"],
+      },
+    ],
+    carriers: [
+      {
+        id: "AZ",
+        name: "ITA Airways",
+        logo: "/placeholder.svg?height=40&width=40",
+      },
+    ],
+    deepLink: "https://www.skyscanner.com/transport/flights/cdg/mad/241220/",
+  },
 ]
 
 // Mock locations data in Skyscanner format
@@ -468,93 +648,101 @@ const mockLocations: LocationSearchResult[] = [
     type: "AIRPORT",
   },
   {
-    entityId: "1001",
-    name: "Indira Gandhi International Airport",
-    iataCode: "DEL",
-    cityName: "Delhi",
+    entityId: "27550001",
+    name: "Bhubaneswar",
+    iataCode: "BBI",
+    cityName: "Bhubaneswar",
     countryName: "India",
-    type: "AIRPORT"
+    type: "CITY",
   },
   {
-    entityId: "1002",
-    name: "Chhatrapati Shivaji Maharaj International Airport",
-    iataCode: "BOM",
-    cityName: "Mumbai",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1003",
-    name: "Kempegowda International Airport",
-    iataCode: "BLR",
-    cityName: "Bangalore",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1004",
-    name: "Rajiv Gandhi International Airport",
-    iataCode: "HYD",
-    cityName: "Hyderabad",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1005",
-    name: "Chennai International Airport",
-    iataCode: "MAA",
-    cityName: "Chennai",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1006",
-    name: "Netaji Subhas Chandra Bose International Airport",
-    iataCode: "CCU",
-    cityName: "Kolkata",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1007",
-    name: "Cochin International Airport",
-    iataCode: "COK",
-    cityName: "Kochi",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1008",
-    name: "Sardar Vallabhbhai Patel International Airport",
-    iataCode: "AMD",
-    cityName: "Ahmedabad",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1009",
-    name: "Pune Airport",
-    iataCode: "PNQ",
-    cityName: "Pune",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1010",
-    name: "Goa International Airport",
-    iataCode: "GOI",
-    cityName: "Goa",
-    countryName: "India",
-    type: "AIRPORT"
-  },
-  {
-    entityId: "1011",
+    entityId: "27550002",
     name: "Biju Patnaik International Airport",
     iataCode: "BBI",
     cityName: "Bhubaneswar",
     countryName: "India",
-    type: "AIRPORT"
-  },    
+    type: "AIRPORT",
+  },
+  {
+    entityId: "27550003",
+    name: "New Delhi",
+    iataCode: "DEL",
+    cityName: "New Delhi",
+    countryName: "India",
+    type: "CITY",
+  },
+  {
+    entityId: "27550004",
+    name: "Indira Gandhi International Airport",
+    iataCode: "DEL",
+    cityName: "New Delhi",
+    countryName: "India",
+    type: "AIRPORT",
+  },
+  {
+    entityId: "27550005",
+    name: "Mumbai",
+    iataCode: "BOM",
+    cityName: "Mumbai",
+    countryName: "India",
+    type: "CITY",
+  },
+  {
+    entityId: "27550006",
+    name: "Chhatrapati Shivaji Maharaj International Airport",
+    iataCode: "BOM",
+    cityName: "Mumbai",
+    countryName: "India",
+    type: "AIRPORT",
+  },
+  {
+    entityId: "27550007",
+    name: "Bangalore",
+    iataCode: "BLR",
+    cityName: "Bangalore",
+    countryName: "India",
+    type: "CITY",
+  },
+  {
+    entityId: "27550008",
+    name: "Kempegowda International Airport",
+    iataCode: "BLR",
+    cityName: "Bangalore",
+    countryName: "India",
+    type: "AIRPORT",
+  },
+  {
+    entityId: "27550009",
+    name: "Hyderabad",
+    iataCode: "HYD",
+    cityName: "Hyderabad",
+    countryName: "India",
+    type: "CITY",
+  },
+  {
+    entityId: "27550010",
+    name: "Rajiv Gandhi International Airport",
+    iataCode: "HYD",
+    cityName: "Hyderabad",
+    countryName: "India",
+    type: "AIRPORT",
+  },
+  {
+    entityId: "27550011",
+    name: "Kolkata",
+    iataCode: "CCU",
+    cityName: "Kolkata",
+    countryName: "India",
+    type: "CITY",
+  },
+  {
+    entityId: "27550012",
+    name: "Netaji Subhash Chandra Bose International Airport",
+    iataCode: "CCU",
+    cityName: "Kolkata",
+    countryName: "India",
+    type: "AIRPORT",
+  },
 ]
 
 export const skyscanner = new SkyscannerAPI()
