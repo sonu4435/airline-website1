@@ -62,7 +62,7 @@ export default function SearchResults() {
             arrivalCity: "New York",
             departureTime: "2023-12-15T08:30:00",
             arrivalTime: "2023-12-15T11:45:00",
-            price: 450,
+            price: 45099,
             availableSeats: 45,
             aircraft: "Boeing 777",
             status: "scheduled",
@@ -77,7 +77,7 @@ export default function SearchResults() {
             arrivalCity: "New York",
             departureTime: "2023-12-15T10:15:00",
             arrivalTime: "2023-12-15T13:30:00",
-            price: 520,
+            price: 52120,
             availableSeats: 32,
             aircraft: "Airbus A330",
             status: "scheduled",
@@ -92,7 +92,7 @@ export default function SearchResults() {
             arrivalCity: "New York",
             departureTime: "2023-12-15T14:45:00",
             arrivalTime: "2023-12-15T19:15:00",
-            price: 380,
+            price: 37500,
             availableSeats: 18,
             aircraft: "Airbus A340",
             status: "scheduled",
@@ -107,7 +107,7 @@ export default function SearchResults() {
             arrivalCity: "New York",
             departureTime: "2023-12-15T16:20:00",
             arrivalTime: "2023-12-15T20:45:00",
-            price: 620,
+            price: 62000,
             availableSeats: 52,
             aircraft: "Boeing 787",
             status: "scheduled",
@@ -122,7 +122,7 @@ export default function SearchResults() {
             arrivalCity: "New York",
             departureTime: "2023-12-15T07:10:00",
             arrivalTime: "2023-12-15T12:25:00",
-            price: 490,
+            price: 49900,
             availableSeats: 27,
             aircraft: "Airbus A350",
             status: "scheduled",
@@ -246,7 +246,7 @@ export default function SearchResults() {
                       </div>
 
                       <div className="bg-gray-50 p-4 md:p-6 flex flex-col justify-center items-end">
-                        <div className="text-2xl font-bold">${flight.price * passengers}</div>
+                        <div className="text-2xl font-bold">₹{flight.price * passengers}</div>
                         <div className="text-sm text-gray-500">
                           {passengers} {passengers === 1 ? "passenger" : "passengers"}
                         </div>
