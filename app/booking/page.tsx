@@ -78,7 +78,7 @@ export default function BookingPage() {
           arrivalCity: "Paris",
           departureTime: "2023-12-15T08:30:00",
           arrivalTime: "2023-12-15T20:45:00",
-          price: 450,
+          price: 43550,
           availableSeats: 45,
           aircraft: "Boeing 777",
           status: "scheduled",
