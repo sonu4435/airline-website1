@@ -85,7 +85,7 @@ export default function SearchResults() {
           {
             _id: "flight3",
             flightNumber: "LH5678",
-            airline: "Lufthansa",
+            airline: "",
             departureAirport: from,
             arrivalAirport: to,
             departureCity: "Paris",
@@ -257,7 +257,6 @@ export default function SearchResults() {
                       <div>
                         <div className="text-2xl font-semibold">{format(parseISO(flight.departureTime), "HH:mm")}</div>
                         <div className="text-sm text-gray-500">{flight.departureAirport}</div>
-                        <div className="text-sm text-gray-500">{flight.departureCity}</div>
                       </div>
 
                       <div className="flex flex-col items-center">
@@ -275,7 +274,6 @@ export default function SearchResults() {
                       <div>
                         <div className="text-2xl font-semibold">{format(parseISO(flight.arrivalTime), "HH:mm")}</div>
                         <div className="text-sm text-gray-500">{flight.arrivalAirport}</div>
-                        <div className="text-sm text-gray-500">{flight.arrivalCity}</div>
                       </div>
 
                       <div>

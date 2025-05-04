@@ -237,8 +237,7 @@ export default function BookingPage() {
                     </p>
                     <p>
                       <ArrowRight className="inline-block mr-1 h-4 w-4" />
-                      {flight.departureCity} ({flight.departureAirport}) to {flight.arrivalCity} (
-                      {flight.arrivalAirport})
+                      {flight.departureCity} to {flight.arrivalCity}
                     </p>
                     <p>
                       <Clock className="inline-block mr-1 h-4 w-4" />
@@ -254,8 +253,8 @@ export default function BookingPage() {
                     <h3 className="text-lg font-semibold">Passenger Information</h3>
                     <p>Number of Passengers: {passengersCount}</p>
                     <p>Class: {flightClass}</p>
-                    <p>Price per passenger: ${flight.price}</p>
-                    <p className="font-semibold">Total Price: ${flight.price * passengersCount}</p>
+                    <p>Price per passenger: ₹{flight.price}</p>
+                    <p className="font-semibold">Total Price: ₹{flight.price * passengersCount}</p>
                   </div>
                 </div>
 
