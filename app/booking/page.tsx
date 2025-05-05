@@ -241,11 +241,6 @@ export default function BookingPage() {
                   <div>
                     <h3 className="text-lg font-semibold">Flight Details</h3>
                     <p>
-                      <Clock className="inline-block mr-1 h-4 w-4" />
-                      {format(parseISO(departureTime), "EEE, d MMM yyyy HH:mm")} -{" "}
-                      {format(parseISO(arrivalTime), "HH:mm")}
-                    </p>
-                    <p>
                       <ArrowRight className="inline-block mr-1 h-4 w-4" />
                       {departureAirport} to {arrivalAirport}
                     </p>
